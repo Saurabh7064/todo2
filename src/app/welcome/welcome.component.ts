@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import {AppComponent} from '../app.component';
 
 @Component({
@@ -8,10 +9,15 @@ import {AppComponent} from '../app.component';
 })
 export class WelcomeComponent implements OnInit {
  message = 'Hello';
-  constructor() { }
+ name= ''
+ //add ActivatedRoute as Dependecy Injection
+  constructor(private route:ActivatedRoute) { }
 
   ngOnInit(): void {
     console.log(this.message);
+    //pickup the name parameter
+    //here params is a map. and name is the key
+    this.name= this.route.snapshot.params['name'];
   }
 
 }
