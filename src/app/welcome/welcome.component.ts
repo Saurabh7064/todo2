@@ -9,6 +9,7 @@ import { WelcomeDataService } from './../service/data/welcome-data.service';
 })
 export class WelcomeComponent implements OnInit {
  message = 'Hello';
+ welcomeMessageFromService : String
  name= ''
  //add ActivatedRoute as Dependecy Injection
   constructor(
@@ -24,8 +25,16 @@ export class WelcomeComponent implements OnInit {
 
   getWelcomeMessage(){
     console.log(this.service.executeHelloWorldBean());
-    this.service.executeHelloWorldBean().subscribe();
+    this.service.executeHelloWorldBean().subscribe(
+      response => this.handleSuccessfullResponse(response)
+    );
    // console.log("welcome");
+  }
+
+  handleSuccessfullResponse(response){
+      this.welcomeMessageFromService=response.message;
+
+    
   }
 
 }
