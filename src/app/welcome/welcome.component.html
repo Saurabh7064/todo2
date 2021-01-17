@@ -6,7 +6,7 @@ Welcome in {{name}}, click here to see your todos <a routerLink="/todos">here</a
 
 <div class="container">
     <BR>
-Click here to get customized welcome message <button (click)="getWelcomeMessage()" class="btn btn-success">Get Welcome Message</button>
+Click here to get customized welcome message <button (click)="getWelcomeMessageWithPath()" class="btn btn-success">Get Welcome Message</button>
 </div>
 
 <div class="container" *ngIf="welcomeMessageFromService">
