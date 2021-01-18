@@ -15,4 +15,8 @@ export class TodoDataService {
     return this.http.get<Todo[]>(`http://localhost:8080/users/${username}/todos`);
     //console.log("execute hellow world bean");
   }
+
+  deleteTodo(username,id){
+    return this.http.delete(`http://localhost:8080/users/${username}/todos/${id}`);
+  }
 }
