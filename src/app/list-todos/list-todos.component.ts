@@ -34,7 +34,7 @@ export class ListTodosComponent implements OnInit {
 
   constructor(
     private todoService:TodoDataService,
-    private router:Router
+   private router:Router
   ) { }
 
   ngOnInit() {
@@ -64,7 +64,7 @@ export class ListTodosComponent implements OnInit {
 
   updateTodo(id){
     console.log(`Updated ${id}`)
-    this.router.navigate(['todos'],id)
+    this.router.navigate(['todos',id])
   }
 
 
