@@ -19,7 +19,7 @@ export class BasicAuthenticationService {
       Authorization : basicAuthHeaderString
     })
 
-    return this.http.get<AuthenticationBean>(`http://localhost:8092/basicauth`,
+    return this.http.get<AuthenticationBean>(`http://localhost:8092/basicAuth`,
     {headers}).pipe(
       map(
       data => {
