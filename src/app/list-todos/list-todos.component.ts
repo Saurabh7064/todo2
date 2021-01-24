@@ -43,7 +43,7 @@ export class ListTodosComponent implements OnInit {
   }
 
   refreshTodos(){
-    this.todoService.retrieveAllTodos('angular').subscribe(
+    this.todoService.retrieveAllTodos('in28minutes').subscribe(
       response => {
         this.todos = response;
       }
