@@ -24,6 +24,7 @@ export class BasicAuthenticationService {
       map(
       data => {
         sessionStorage.setItem('authenticatedUser',username);
+        sessionStorage.setItem('token',basicAuthHeaderString);
         return data;
       }
       )
@@ -31,17 +32,16 @@ export class BasicAuthenticationService {
     //console.log("execute hellow world bean");
   } 
 
+  isAuthenticatedUser(){
+    return sessionStorage.getItem('authenticatedUser');
+   
+   }
 
-  authenticate(username, password){
-    console.log('before'+this.isUserLoggedIn());
-    if(username === "surbhi" && password === 'dummy'){
-      sessionStorage.setItem('authenticatedUser',username);
-      console.log('after'+this.isUserLoggedIn());
-            return true;
-    }
-      return false;
-    
-  }
+   getAuthenticatedToken(){
+     if(this.isAuthenticatedUser())
+    return  sessionStorage.getItem('token');
+   
+   }
 
   isUserLoggedIn(){
    let user= sessionStorage.getItem('authenticatedUser');
@@ -50,6 +50,7 @@ export class BasicAuthenticationService {
 
   logout(){
     sessionStorage.removeItem('authenticatedUser');
+    sessionStorage.removeItem('token');
   }
 }
 
